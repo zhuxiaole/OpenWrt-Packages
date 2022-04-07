@@ -16,11 +16,10 @@ rm -rf $1
 }
 
 git clone --depth 1 https://github.com/destan19/OpenAppFilter && mvdir OpenAppFilter
-git clone --depth 1 https://github.com/brvphoenix/luci-app-wrtbwmon wrtbwmon1 && mvdir wrtbwmon1
-git clone --depth 1 https://github.com/brvphoenix/wrtbwmon wrtbwmon2 && mvdir wrtbwmon2
 git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config
 git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon
 
+svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-wrtbwmon
 svn co https://github.com/coolsnowwolf/packages/trunk/net/uugamebooster
 svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-uugamebooster
 svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-arpbind
