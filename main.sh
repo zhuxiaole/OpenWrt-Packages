@@ -26,7 +26,6 @@ svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-uugamebo
 svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-arpbind
 svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-usb-printer
 svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-accesscontrol
-svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-airplay2
 svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-cifs-mount
 svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-easymesh
 svn co https://github.com/coolsnowwolf/luci/trunk/libs/luci-lib-fs
