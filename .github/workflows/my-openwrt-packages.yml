@@ -1,9 +1,9 @@
-name: Update packages
+name: Update My OpenWrt Packages
 
 on:
   push:
     paths:
-      - '.github/workflows/zhuxiaole.yml'
+      - '.github/workflows/my-openwrt-packages.yml'
       - 'diy/**'
       - 'main.sh'
   schedule:
@@ -42,7 +42,7 @@ jobs:
     - name: Clone packages
       run: |
         cd $GITHUB_WORKSPACE
-        git clone -b ${{matrix.target}} https://github.com/zhuxiaole/My_Openwrt_Packages.git ${{matrix.target}}
+        git clone -b ${{matrix.target}} https://github.com/zhuxiaole/my-openwrt-packages.git ${{matrix.target}}
         cd ${{matrix.target}}
         git rm -r --cache * >/dev/null 2>&1 &
         rm -rf `find ./* -maxdepth 0 -type d ! -name "diy"` >/dev/null 2>&1
@@ -60,7 +60,7 @@ jobs:
         cd $GITHUB_WORKSPACE/${{matrix.target}}
         git add .
         git commit -m "update $(TZ='Asia/Shanghai' date +%m-%d" "%H:%M)"
-        git push --quiet "https://${{ secrets.ACCESS_TOKEN }}@github.com/zhuxiaole/My_Openwrt_Packages.git" HEAD:${{matrix.target}}
+        git push --quiet "https://${{ secrets.ACCESS_TOKEN }}@github.com/zhuxiaole/my-openwrt-packages.git" HEAD:${{matrix.target}}
         
         
     - name: Delete workflow runs
