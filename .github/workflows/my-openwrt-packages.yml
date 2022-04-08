@@ -5,7 +5,6 @@ on:
     paths:
       - '.github/workflows/my-openwrt-packages.yml'
       - 'diy/**'
-      - 'main.sh'
   schedule:
     - cron: 0 */12 * * *
   repository_dispatch:
@@ -46,9 +45,9 @@ jobs:
         cd ${{matrix.target}}
         git rm -r --cache * >/dev/null 2>&1 &
         rm -rf `find ./* -maxdepth 0 -type d ! -name "diy"` >/dev/null 2>&1
-        chmod +x $GITHUB_WORKSPACE/${{matrix.target}}.sh
-        chmod +x $GITHUB_WORKSPACE/diy/Modify.sh
-        $GITHUB_WORKSPACE/${{matrix.target}}.sh
+        rm -rf `find ./* -maxdepth 0 -type f ! -name "README.md"` >/dev/null 2>&1
+        chmod +x $GITHUB_WORKSPACE/diy/*.sh
+        $GITHUB_WORKSPACE/diy/${{matrix.target}}.sh
         $GITHUB_WORKSPACE/diy/Modify.sh
         
     - name: Upload
