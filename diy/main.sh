@@ -16,7 +16,6 @@ rm -rf $1
 }
 
 git clone --depth 1 https://github.com/destan19/OpenAppFilter && mvdir OpenAppFilter
-git clone --depth 1 https://github.com/ntlf9t/luci-app-easymesh
 
 svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-wrtbwmon
 svn co https://github.com/coolsnowwolf/packages/trunk/net/uugamebooster
