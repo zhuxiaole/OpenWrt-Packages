@@ -16,6 +16,8 @@ rm -rf $1
 }
 
 git clone --depth 1 https://github.com/destan19/OpenAppFilter && mvdir OpenAppFilter
+git clone --depth 1 https://github.com/brvphoenix/wrtbwmon && mvdir wrtbwmon
+git clone --depth 1 https://github.com/brvphoenix/luci-app-wrtbwmon && mvdir luci-app-wrtbwmon
 git clone --depth 1 https://github.com/sirpdboy/luci-app-advanced
 git clone --depth 1 https://github.com/tty228/luci-app-serverchan
 git clone --depth 1 https://github.com/ntlf9t/luci-app-easymesh
@@ -24,7 +26,6 @@ git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config
 git clone --depth 1 -b packages https://github.com/xiaorouji/openwrt-passwall passwall-pkgs && rm -rf passwall-pkgs/.github && mv -n passwall-pkgs/* ./ && rm -rf passwall-pkgs
 git clone --depth 1 -b luci https://github.com/xiaorouji/openwrt-passwall passwall-luci && mv -n passwall-luci/luci-app-passwall ./ && rm -rf passwall-luci
 
-svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-wrtbwmon
 svn co https://github.com/coolsnowwolf/packages/trunk/net/uugamebooster
 svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-uugamebooster
 svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-arpbind
