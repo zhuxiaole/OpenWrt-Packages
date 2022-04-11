@@ -35,6 +35,7 @@ svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-cifs-mou
 svn co https://github.com/coolsnowwolf/luci/trunk/libs/luci-lib-fs
 svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-filetransfer
 svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-guest-wifi
+svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-adguardhome
 
 rm -rf ./*/.git & rm -f ./*/.gitattributes
 rm -rf ./*/.svn & rm -rf ./*/.github & rm -rf ./*/.gitignore
