@@ -26,6 +26,9 @@ git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config
 git clone --depth 1 -b packages https://github.com/xiaorouji/openwrt-passwall passwall-pkgs && rm -rf passwall-pkgs/.github && mv -n passwall-pkgs/* ./ && rm -rf passwall-pkgs
 git clone --depth 1 -b luci https://github.com/xiaorouji/openwrt-passwall passwall-luci && mv -n passwall-luci/luci-app-passwall ./ && rm -rf passwall-luci
 git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21openwrt" applications/luci-app-eqos
+git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/packages" "21openwrt" net/dnsforwarder
+git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/packages" "21openwrt" net/dnsproxy
+git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21openwrt" applications/luci-app-turboacc
 
 svn co https://github.com/coolsnowwolf/packages/trunk/net/uugamebooster
 svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-uugamebooster
