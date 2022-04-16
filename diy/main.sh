@@ -40,6 +40,8 @@ git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21openwrt"
 git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21openwrt" applications/luci-app-filetransfer
 git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21openwrt" applications/luci-app-guest-wifi
 git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21openwrt" applications/luci-app-ramfree
+git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/immortalwrt" "21openwrt" package/kernel/fast-classifier
+git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/immortalwrt" "21openwrt" package/kernel/shortcut-fe
 
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-adguardhome
 
