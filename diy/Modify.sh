@@ -7,6 +7,6 @@ mv luci-app-guest-wifi/po/zh_Hans/luci-app-guest-wifi.po luci-app-guest-wifi/po/
 
 bash diy/convert_translation.sh -a >/dev/null 2>&1
 
-echo "$(date -d "now" +%Y-%m-%d %H:%M:%S)" > diy/version
+echo `date +"%Y-%m-%d %H:%M:%S"` > diy/version
 
 exit 0
