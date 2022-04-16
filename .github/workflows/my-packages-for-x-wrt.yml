@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/my-packages-for-x-wrt.yml'
-      - 'diy/**'
+      - 'diy/*.sh'
   schedule:
     - cron: 0 */12 * * *
   repository_dispatch:
