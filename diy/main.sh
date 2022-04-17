@@ -6,7 +6,7 @@ cd $localdir
 git sparse-checkout init --cone
 git sparse-checkout set $@
 mv -n $@ ../
-cd ..
+cd $GITHUB_WORKSPACE/$REPO_BRANCH
 rm -rf $localdir
 }
 
@@ -26,22 +26,21 @@ git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config
 git clone --depth 1 -b packages https://github.com/xiaorouji/openwrt-passwall passwall-pkgs && rm -rf passwall-pkgs/.github && mv -n passwall-pkgs/* ./ && rm -rf passwall-pkgs
 git clone --depth 1 -b luci https://github.com/xiaorouji/openwrt-passwall passwall-luci && mv -n passwall-luci/luci-app-passwall ./ && rm -rf passwall-luci
 
-git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21openwrt" applications/luci-app-eqos
-git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/packages" "21openwrt" net/dnsforwarder
-git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/packages" "21openwrt" net/dnsproxy
-git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21openwrt" applications/luci-app-turboacc
-git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/packages" "21openwrt" net/uugamebooster
-git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21openwrt" applications/luci-app-uugamebooster
-git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21openwrt" applications/luci-app-arpbind
-git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21openwrt" applications/luci-app-usb-printer
-git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21openwrt" applications/luci-app-accesscontrol
-git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21openwrt" applications/luci-app-cifs-mount
-git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21openwrt" libs/luci-lib-fs
-git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21openwrt" applications/luci-app-filetransfer
-git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21openwrt" applications/luci-app-guest-wifi
-git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21openwrt" applications/luci-app-ramfree
-
-svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-adguardhome
+git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21immortalwrt" applications/luci-app-eqos
+git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/packages" "21immortalwrt" net/dnsforwarder
+git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/packages" "21immortalwrt" net/dnsproxy
+git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21immortalwrt" applications/luci-app-turboacc
+git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/packages" "21immortalwrt" net/uugamebooster
+git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21immortalwrt" applications/luci-app-uugamebooster
+git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21immortalwrt" applications/luci-app-arpbind
+git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21immortalwrt" applications/luci-app-usb-printer
+git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21immortalwrt" applications/luci-app-accesscontrol
+git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21immortalwrt" applications/luci-app-cifs-mount
+git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21immortalwrt" libs/luci-lib-fs
+git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21immortalwrt" applications/luci-app-filetransfer
+git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21immortalwrt" applications/luci-app-guest-wifi
+git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21immortalwrt" applications/luci-app-ramfree
+git_sparse_clone master "https://github.com/kiddin9/openwrt-packages" "kiddin9" luci-app-adguardhome
 
 rm -rf ./*/.git & rm -f ./*/.gitattributes
 rm -rf ./*/.svn & rm -rf ./*/.github & rm -rf ./*/.gitignore

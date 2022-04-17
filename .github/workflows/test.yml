@@ -31,11 +31,24 @@ jobs:
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
+        echo "REPO_BRANCH=${{matrix.target}}" >> $GITHUB_ENV
         sudo -E apt-get -qq update
         sudo -E apt-get -qq install git subversion git-core wget
         sudo timedatectl set-timezone "$TZ"
         git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --global user.name "github-actions[bot]"
+        
+    - name: Clone packages
+      run: |
+        cd $GITHUB_WORKSPACE
+        git clone -b ${{matrix.target}} https://github.com/zhuxiaole/my-packages-for-x-wrt.git ${{matrix.target}}
+        cd ${{matrix.target}}
+        git rm -r --cache * >/dev/null 2>&1 &
+        rm -rf `find ./* -maxdepth 0 -type d ! -name "diy"` >/dev/null 2>&1
+        rm -rf `find ./* -maxdepth 0 -type f ! -name "README.md"` >/dev/null 2>&1
+        chmod +x $GITHUB_WORKSPACE/diy/*.sh
+        $GITHUB_WORKSPACE/diy/${{matrix.target}}.sh
+        $GITHUB_WORKSPACE/diy/Modify.sh
         
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
