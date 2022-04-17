@@ -26,21 +26,23 @@ git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config
 git clone --depth 1 -b packages https://github.com/xiaorouji/openwrt-passwall passwall-pkgs && rm -rf passwall-pkgs/.github && mv -n passwall-pkgs/* ./ && rm -rf passwall-pkgs
 git clone --depth 1 -b luci https://github.com/xiaorouji/openwrt-passwall passwall-luci && mv -n passwall-luci/luci-app-passwall ./ && rm -rf passwall-luci
 
-git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21immortalwrt" applications/luci-app-eqos
-git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/packages" "21immortalwrt" net/dnsforwarder
-git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/packages" "21immortalwrt" net/dnsproxy
-git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21immortalwrt" applications/luci-app-turboacc
-git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/packages" "21immortalwrt" net/uugamebooster
-git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21immortalwrt" applications/luci-app-uugamebooster
-git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21immortalwrt" applications/luci-app-arpbind
-git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21immortalwrt" applications/luci-app-usb-printer
-git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21immortalwrt" applications/luci-app-accesscontrol
-git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21immortalwrt" applications/luci-app-cifs-mount
-git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21immortalwrt" libs/luci-lib-fs
-git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21immortalwrt" applications/luci-app-filetransfer
-git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21immortalwrt" applications/luci-app-guest-wifi
-git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "21immortalwrt" applications/luci-app-ramfree
-git_sparse_clone master "https://github.com/kiddin9/openwrt-packages" "kiddin9" luci-app-adguardhome
+git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "eqos_luci" applications/luci-app-eqos
+git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/packages" "uugamebooster_pkg" net/uugamebooster
+git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "uugamebooster_luci" applications/luci-app-uugamebooster
+git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "arpbind_luci" applications/luci-app-arpbind
+git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "usb_printer_luci" applications/luci-app-usb-printer
+git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "accesscontrol_luci" applications/luci-app-accesscontrol
+git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "cifs_mount_luci" applications/luci-app-cifs-mount
+git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "lib_fs_luci" libs/luci-lib-fs
+git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "filetransfer_luci" applications/luci-app-filetransfer
+git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "guest_wifi_luci" applications/luci-app-guest-wifi
+git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "ramfree_luci" applications/luci-app-ramfree
+git_sparse_clone master "https://github.com/kiddin9/openwrt-packages" "adguardhome_luci" luci-app-adguardhome
+git_sparse_clone master "https://github.com/kiddin9/openwrt-packages" "dnsforwarder_pkg" dnsforwarder
+git_sparse_clone master "https://github.com/kiddin9/openwrt-packages" "fast_classifier_pkg" shortcut-fe/fast-classifier
+git_sparse_clone master "https://github.com/kiddin9/openwrt-packages" "shortcut_fe_pkg" shortcut-fe/shortcut-fe
+git_sparse_clone master "https://github.com/kiddin9/openwrt-packages" "simulated_driver_pkg" shortcut-fe/simulated-driver
+git_sparse_clone master "https://github.com/kiddin9/openwrt-packages" "turboacc_luci" luci-app-turboacc
 
 rm -rf ./*/.git & rm -f ./*/.gitattributes
 rm -rf ./*/.svn & rm -rf ./*/.github & rm -rf ./*/.gitignore
