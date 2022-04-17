@@ -38,10 +38,6 @@ git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "filetransf
 git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "guest_wifi_luci" applications/luci-app-guest-wifi
 git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "ramfree_luci" applications/luci-app-ramfree
 git_sparse_clone master "https://github.com/kiddin9/openwrt-packages" "adguardhome_luci" luci-app-adguardhome
-git_sparse_clone master "https://github.com/kiddin9/openwrt-packages" "dnsforwarder_pkg" dnsforwarder
-git_sparse_clone master "https://github.com/kiddin9/openwrt-packages" "fast_classifier_pkg" shortcut-fe/fast-classifier
-git_sparse_clone master "https://github.com/kiddin9/openwrt-packages" "shortcut_fe_pkg" shortcut-fe/shortcut-fe
-git_sparse_clone master "https://github.com/kiddin9/openwrt-packages" "simulated_driver_pkg" shortcut-fe/simulated-driver
 git_sparse_clone master "https://github.com/kiddin9/openwrt-packages" "turboacc_luci" luci-app-turboacc
 
 rm -rf ./*/.git & rm -f ./*/.gitattributes
