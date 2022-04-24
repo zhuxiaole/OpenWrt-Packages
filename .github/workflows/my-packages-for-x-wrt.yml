@@ -1,14 +1,7 @@
 name: Update My Packages For X-WRT
 
 on:
-  push:
-    paths:
-      - '.github/workflows/my-packages-for-x-wrt.yml'
-      - 'diy/*.sh'
-  schedule:
-    - cron: 0 */12 * * *
   repository_dispatch:
-  workflow_dispatch:
 
 env:
   TZ: Asia/Shanghai
@@ -42,7 +35,7 @@ jobs:
     - name: Clone packages
       run: |
         cd $GITHUB_WORKSPACE
-        git clone -b ${{matrix.target}} https://github.com/zhuxiaole/my-packages-for-x-wrt.git ${{matrix.target}}
+        git clone -b ${{matrix.target}} https://github.com/${{ github.repository }} ${{matrix.target}}
         cd ${{matrix.target}}
         git rm -r --cache * >/dev/null 2>&1 &
         rm -rf `find ./* -maxdepth 0 -type d ! -name "diy"` >/dev/null 2>&1
@@ -50,29 +43,28 @@ jobs:
         chmod +x $GITHUB_WORKSPACE/diy/*.sh
         $GITHUB_WORKSPACE/diy/${{matrix.target}}.sh
         $GITHUB_WORKSPACE/diy/Modify.sh
+
+    - name: SSH connection to Actions
+      uses: P3TERX/ssh2actions@v1.0.0
+      if: github.event.client_payload.test == 'true'
+      env:
+        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         
     - name: Upload
       env: 
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      if: github.event.client_payload.test != 'true'
       run: |
         [ -e $GITHUB_WORKSPACE/LICENSE ] && cp $GITHUB_WORKSPACE/LICENSE $GITHUB_WORKSPACE/${{matrix.target}}
         [ -e $GITHUB_WORKSPACE/README.md ] && cp $GITHUB_WORKSPACE/README.md $GITHUB_WORKSPACE/${{matrix.target}}
         cd $GITHUB_WORKSPACE/${{matrix.target}}
         git add .
         git commit -m "update $(TZ='Asia/Shanghai' date +%m-%d" "%H:%M)"
-        git push --quiet "https://${{ secrets.ACCESS_TOKEN }}@github.com/zhuxiaole/my-packages-for-x-wrt.git" HEAD:${{matrix.target}}
+        git push --quiet "https://${{ secrets.ACCESS_TOKEN }}@github.com/${{ github.repository }}.git" HEAD:${{matrix.target}}
         
     - name: Delete workflow runs
       uses: Mattraks/delete-workflow-runs@v2
       with:
         retain_days: 1
         keep_minimum_runs: 4
-
-    - name: Remove old Releases
-      uses: dev-drprasad/delete-older-releases@v0.1.0
-      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
-      with:
-        keep_latest: 1
-        delete_tags: true
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

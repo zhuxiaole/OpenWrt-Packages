@@ -1,0 +1,31 @@
+name: Update Checker For X-Wrt
+
+env:
+  TZ: Asia/Shanghai
+
+on:
+  push:
+    paths:
+      - '.github/workflows/my-packages-for-x-wrt.yml'
+      - 'diy/*.sh'
+  schedule:
+    - cron: 0 */12 * * *
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Trigger update packages
+      uses: peter-evans/repository-dispatch@v2
+      with:
+        token: ${{ secrets.ACCESS_TOKEN }}
+        event-type: Update My Packages For X-WRT
+
+    - name: Delete workflow runs
+      uses: Mattraks/delete-workflow-runs@v2
+      with:
+        retain_days: 1
+        keep_minimum_runs: 4
