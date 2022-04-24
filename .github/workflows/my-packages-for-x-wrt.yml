@@ -62,12 +62,11 @@ jobs:
         git commit -m "update $(TZ='Asia/Shanghai' date +%m-%d" "%H:%M)"
         git push --quiet "https://${{ secrets.ACCESS_TOKEN }}@github.com/zhuxiaole/my-packages-for-x-wrt.git" HEAD:${{matrix.target}}
         
-        
     - name: Delete workflow runs
-      uses: GitRML/delete-workflow-runs@main
+      uses: Mattraks/delete-workflow-runs@v2
       with:
         retain_days: 1
-        keep_minimum_runs: 2
+        keep_minimum_runs: 4
 
     - name: Remove old Releases
       uses: dev-drprasad/delete-older-releases@v0.1.0
