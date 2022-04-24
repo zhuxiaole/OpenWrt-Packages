@@ -1,4 +1,4 @@
-name: Update Checker For X-Wrt
+name: Update Checker
 
 env:
   TZ: Asia/Shanghai
@@ -6,7 +6,7 @@ env:
 on:
   push:
     paths:
-      - '.github/workflows/my-packages-for-x-wrt.yml'
+      - '.github/workflows/my-openwrt-packages.yml'
       - 'diy/*.sh'
   schedule:
     - cron: 0 */12 * * *

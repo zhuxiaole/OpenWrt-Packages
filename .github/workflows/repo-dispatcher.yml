@@ -1,4 +1,4 @@
-name: Repo Dispatcher For X-Wrt
+name: Repo Dispatcher
 
 env:
   TZ: Asia/Shanghai
