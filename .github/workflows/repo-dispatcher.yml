@@ -6,6 +6,10 @@ env:
 on:
   workflow_dispatch:
     inputs:
+      target:
+        description: 'target'
+        required: true
+        default: 'x-wrt'
       test:
         description: 'if test?'
         required: false
@@ -22,16 +26,16 @@ jobs:
       uses: peter-evans/repository-dispatch@v2
       with:
         token: ${{ secrets.ACCESS_TOKEN }}
-        event-type: Manual Update My Packages For X-WRT
-        client-payload: '{"test": "false"}'
+        event-type: Manual update my packages for ${{ github.event.inputs.target }}
+        client-payload: '{"target": "${{ github.event.inputs.target }}", "test": "false"}'
 
     - name: Trigger test
       if: github.event.inputs.test == 'true'
       uses: peter-evans/repository-dispatch@v2
       with:
         token: ${{ secrets.ACCESS_TOKEN }}
-        event-type: Test Update My Packages For X-WRT
-        client-payload: '{"test": "true"}'
+        event-type: Test update my packages for ${{ github.event.inputs.target }}
+        client-payload: '{"target": "${{ github.event.inputs.target }}", "test": "true"}'
 
     - name: Delete workflow runs
       uses: Mattraks/delete-workflow-runs@v2

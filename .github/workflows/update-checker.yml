@@ -7,7 +7,7 @@ on:
   push:
     paths:
       - '.github/workflows/my-openwrt-packages.yml'
-      - 'diy/*.sh'
+      - 'diy/*/*.sh'
   schedule:
     - cron: 0 */12 * * *
   workflow_dispatch:
@@ -18,11 +18,14 @@ jobs:
 
     steps:
 
-    - name: Trigger update packages
-      uses: peter-evans/repository-dispatch@v2
-      with:
-        token: ${{ secrets.ACCESS_TOKEN }}
-        event-type: Update My Packages For X-WRT
+    - name: Trigger update x-wrt packages
+      run: |
+        sudo timedatectl set-timezone "$TZ"
+          curl \
+          -X POST https://api.github.com/repos/${{ github.repository }}/dispatches \
+          -H "Accept: application/vnd.github.everest-preview+json" \
+          -H "Authorization: token ${{ secrets.ACCESS_TOKEN }}" \
+          -d '{"event_type": "Update My Packages For X-Wrt", "client_payload": {"target": "x-wrt"}}'
 
     - name: Delete workflow runs
       uses: Mattraks/delete-workflow-runs@v2

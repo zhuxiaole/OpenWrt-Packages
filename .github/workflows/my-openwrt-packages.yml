@@ -35,7 +35,7 @@ jobs:
     - name: Clone packages
       run: |
         cd $GITHUB_WORKSPACE
-        git clone -b main https://github.com/${{ github.repository }}
+        git clone -b main https://github.com/${{ github.repository }} main
         rm -rf main/.git
         rm -rf main/.github
         mv main/* .
