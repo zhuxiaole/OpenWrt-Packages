@@ -25,6 +25,8 @@ jobs:
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
+        rm -rf .git
+        rm -rf .github
         echo "REPO_BRANCH=${{matrix.target}}" >> $GITHUB_ENV
         sudo -E apt-get -qq update
         sudo -E apt-get -qq install git subversion git-core wget
@@ -35,10 +37,6 @@ jobs:
     - name: Clone packages
       run: |
         cd $GITHUB_WORKSPACE
-        git clone -b main https://github.com/${{ github.repository }} main
-        rm -rf main/.git
-        rm -rf main/.github
-        mv main/* .
         git clone -b ${{matrix.target}} https://github.com/${{ github.repository }} ${{matrix.target}}
         cd ${{matrix.target}}
         git rm -r --cache * >/dev/null 2>&1 &
