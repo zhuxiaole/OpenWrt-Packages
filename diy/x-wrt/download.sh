@@ -27,6 +27,8 @@ git clone --depth 1 -b packages https://github.com/xiaorouji/openwrt-passwall pa
 git clone --depth 1 -b luci https://github.com/xiaorouji/openwrt-passwall passwall-luci && mv -n passwall-luci/luci-app-passwall ./ && rm -rf passwall-luci
 
 git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "eqos_luci" applications/luci-app-eqos
+git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/packages" "adbyby_pkg" net/adbyby
+git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "adbyby_plus_luci" applications/luci-app-adbyby-plus
 git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/packages" "uugamebooster_pkg" net/uugamebooster
 git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "uugamebooster_luci" applications/luci-app-uugamebooster
 git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "arpbind_luci" applications/luci-app-arpbind
