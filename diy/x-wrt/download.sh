@@ -27,8 +27,6 @@ git clone --depth 1 -b packages https://github.com/xiaorouji/openwrt-passwall pa
 git clone --depth 1 -b luci https://github.com/xiaorouji/openwrt-passwall passwall-luci && mv -n passwall-luci/luci-app-passwall ./ && rm -rf passwall-luci
 
 git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "eqos_luci" applications/luci-app-eqos
-git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/packages" "adbyby_pkg" net/adbyby
-git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "adbyby_plus_luci" applications/luci-app-adbyby-plus
 git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/packages" "uugamebooster_pkg" net/uugamebooster
 git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "uugamebooster_luci" applications/luci-app-uugamebooster
 git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "arpbind_luci" applications/luci-app-arpbind
@@ -39,8 +37,10 @@ git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "lib_fs_luc
 git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "filetransfer_luci" applications/luci-app-filetransfer
 git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "guest_wifi_luci" applications/luci-app-guest-wifi
 git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "ramfree_luci" applications/luci-app-ramfree
-git_sparse_clone master "https://github.com/kiddin9/openwrt-packages" "adguardhome_luci" luci-app-adguardhome
+git_sparse_clone master "https://github.com/kenzok8/small-package" "adguardhome_luci" luci-app-adguardhome
 git_sparse_clone master "https://github.com/sundaqiang/openwrt-packages" "wolplus_luci" luci-app-wolplus
+git_sparse_clone master "https://github.com/kenzok8/jell" "adbyby_pkg" adbyby
+git_sparse_clone master "https://github.com/kenzok8/jell" "adbyby_plus_luci" luci-app-adbyby-plus
 
 rm -rf ./*/.git & rm -f ./*/.gitattributes
 rm -rf ./*/.svn & rm -rf ./*/.github & rm -rf ./*/.gitignore
