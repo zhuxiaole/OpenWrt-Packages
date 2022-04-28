@@ -1,4 +1,4 @@
-name: Repo Dispatcher
+name: Manual Update
 
 env:
   TZ: Asia/Shanghai

@@ -1,4 +1,4 @@
-name: Update Checker
+name: Schedule Update
 
 env:
   TZ: Asia/Shanghai
