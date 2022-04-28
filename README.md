@@ -1,2 +1,2 @@
-# my-openwrt-packages
-My OpenWrt Packages
+# openwrt-packages
+OpenWrt Packages

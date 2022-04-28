@@ -26,7 +26,7 @@ jobs:
       uses: peter-evans/repository-dispatch@v2
       with:
         token: ${{ secrets.ACCESS_TOKEN }}
-        event-type: Manual update my packages for ${{ github.event.inputs.target }}
+        event-type: Manual update packages for ${{ github.event.inputs.target }}
         client-payload: '{"target": "${{ github.event.inputs.target }}", "test": "false"}'
 
     - name: Trigger test
@@ -34,7 +34,7 @@ jobs:
       uses: peter-evans/repository-dispatch@v2
       with:
         token: ${{ secrets.ACCESS_TOKEN }}
-        event-type: Test update my packages for ${{ github.event.inputs.target }}
+        event-type: Test update packages for ${{ github.event.inputs.target }}
         client-payload: '{"target": "${{ github.event.inputs.target }}", "test": "true"}'
 
     - name: Delete workflow runs
