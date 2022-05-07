@@ -25,12 +25,12 @@ jobs:
           -X POST https://api.github.com/repos/${{ github.repository }}/dispatches \
           -H "Accept: application/vnd.github.everest-preview+json" \
           -H "Authorization: token ${{ secrets.ACCESS_TOKEN }}" \
-          -d '{"event_type": "Update Packages For X-Wrt", "client_payload": {"target": "x-wrt"}}'
+          -d '{"event_type": "Update Packages For X-WRT", "client_payload": {"target": "X-WRT"}}'
           curl \
           -X POST https://api.github.com/repos/${{ github.repository }}/dispatches \
           -H "Accept: application/vnd.github.everest-preview+json" \
           -H "Authorization: token ${{ secrets.ACCESS_TOKEN }}" \
-          -d '{"event_type": "Update Packages For Lienol-Openwrt", "client_payload": {"target": "lienol-op"}}'
+          -d '{"event_type": "Update Packages For Lienol-Openwrt", "client_payload": {"target": "Lienol-Openwrt"}}'
 
     - name: Delete workflow runs
       uses: Mattraks/delete-workflow-runs@v2
