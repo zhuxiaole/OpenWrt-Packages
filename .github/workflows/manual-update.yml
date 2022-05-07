@@ -7,13 +7,21 @@ on:
   workflow_dispatch:
     inputs:
       target:
-        description: 'target'
+        description: '选择机型'
         required: true
-        default: 'x-wrt'
+        default: 'lienol-op'
+        type: choice
+        options:
+        - lienol-op
+        - x-wrt
       test:
-        description: 'if test?'
+        description: '是否测试'
         required: false
         default: 'false'
+        type: choice
+        options:
+        - false
+        - true
 
 jobs:
   check:
