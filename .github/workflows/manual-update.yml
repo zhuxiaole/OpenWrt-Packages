@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       target:
-        description: '选择机型'
+        description: '选择Openwrt类型'
         required: true
         default: 'Lienol-Openwrt'
         type: choice
