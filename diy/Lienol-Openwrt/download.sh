@@ -17,6 +17,7 @@ rm -rf $1
 
 git clone --depth 1 https://github.com/destan19/OpenAppFilter && mvdir OpenAppFilter
 git clone --depth 1 https://github.com/sirpdboy/luci-app-advanced
+git clone --depth 1 https://github.com/Ausaci/luci-app-nat6-helper
 git clone --depth 1 https://github.com/tty228/luci-app-serverchan
 git clone --depth 1 https://github.com/ntlf9t/luci-app-easymesh
 git clone --depth 1 -b packages https://github.com/xiaorouji/openwrt-passwall passwall-pkgs && rm -rf passwall-pkgs/.github && mv -n passwall-pkgs/* ./ && rm -rf passwall-pkgs
