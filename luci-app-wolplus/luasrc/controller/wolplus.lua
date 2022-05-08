@@ -4,7 +4,7 @@ local x = luci.model.uci.cursor()
 
 function index()
     if not nixio.fs.access("/etc/config/wolplus") then return end
-entry({"admin", "control"}, firstchild(), "Control", 44).dependent = false
+    entry({"admin", "control"}, firstchild(), "Control", 44).dependent = false
     entry({"admin", "control", "wolplus"}, cbi("wolplus"), _("wolplus"), 95).dependent = true
 	entry( {"admin", "control", "wolplus", "awake"}, post("awake") ).leaf = true
 end
