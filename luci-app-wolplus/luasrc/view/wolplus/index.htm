@@ -1,22 +1,22 @@
-<% [control]n[control]lud[control]("[control]b[control]/map") %>
-<[control][control][control][control]pt typ[control]="t[control]xt/ja[control]a[control][control][control][control]pt">
-	fun[control]t[control]on _[control]d2[control][control][control]t[control]on([control]d) {
-		[control]a[control] x = [control]d.[control]pl[control]t(".");
-		[control][control]tu[control]n x[2];
+<% include("cbi/map") %>
+<script type="text/javascript">
+	function _id2section(id) {
+		var x = id.split(".");
+		return x[2];
 	}
-	fun[control]t[control]on on[control]l[control][control]k_awak[control]([control]d) {
-		[control]a[control] [control][control][control]t[control]on = _[control]d2[control][control][control]t[control]on([control]d);
-		[control]a[control] btnXHR = n[control]w XHR();
-		btnXHR.po[control]t('<%=u[control]l([[adm[control]n]], [[[control][control][control][control][control][control][control][control]]], [[wolplu[control]]], [[awak[control]]])%>/' + [control][control][control]t[control]on, { tok[control]n: '<%=tok[control]n%>' },
-			fun[control]t[control]on(x, data) {
-				[control]f (x.[control][control][control]pon[control][control]T[control]xt == "_un[control]omm[control]tt[control]d_") {
-					txt="<%:Pl[control]a[control][control] [Sa[control][control] & Apply] you[control] [control]hang[control][control] f[control][control][control]t%>";
-					al[control][control]t( txt.[control][control]pla[control][control](n[control]w R[control]gExp("<%:&%>", "g"), "&") );
-				} [control]l[control][control] {
-					al[control][control]t( JSON.pa[control][control][control](x.[control][control][control]pon[control][control]).data );
+	function onclick_awake(id) {
+		var section = _id2section(id);
+		var btnXHR = new XHR();
+		btnXHR.post('<%=url([[admin]], [[service[[control]]], [[wolplu[[control]]], [[awak[[control]]])%>/' + section, { token: '<%=token%>' },
+			function(x, data) {
+				if (x.responseText == "_uncommitted_") {
+					txt="<%:Please [Save & Apply] your changes first%>";
+					alert( txt.replace(new RegExp("<%:&%>", "g"), "&") );
+				} else {
+					alert( JSON.parse(x.response).data );
 				}
 			}
 		);
 	}
-</[control][control][control][control]pt>
+</script>
 
