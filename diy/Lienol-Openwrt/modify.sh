@@ -5,6 +5,7 @@ sed -i -e 's?\.\./\.\./lang/golang/golang-package.mk?$(TOPDIR)/feeds/packages/la
 mkdir -p luci-app-wizard/patches
 cp $GITHUB_WORKSPACE/diy/Lienol-Openwrt/patches/luci-app-wizard/* luci-app-wizard/patches
 
+sed -i "/if not nixio.fs.access(\"\/etc\/config\/wolplus\") then return end/a\entry({\"admin\", \"control\"}, firstchild(), \"Control\", 44).dependent = false" luci-app-wolplus/luasrc/controller/wolplus.lua
 sed -i 's|"admin", "services", "wolplus"|"admin", "control", "wolplus"|g' luci-app-wolplus/luasrc/controller/wolplus.lua
 sed -i "s/\[\[services\]\]/\[\[control\]\]/g" luci-app-wolplus/luasrc/view/wolplus/index.htm
 
