@@ -29,6 +29,8 @@ git_sparse_clone master "https://github.com/kiddin9/openwrt-packages" "wizard_lu
 git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "eqos_luci" applications/luci-app-eqos
 git_sparse_clone master "https://github.com/sundaqiang/openwrt-packages" "wolplus_luci" luci-app-wolplus
 git_sparse_clone openwrt-21.02 "https://github.com/immortalwrt/luci" "accesscontrol_luci" applications/luci-app-accesscontrol
+git_sparse_clone 22.03 "https://github.com/x-wrt/com.x-wrt" "natflow_pkg" natflow
+git_sparse_clone 22.03 "https://github.com/x-wrt/com.x-wrt" "natflow_users_luci" luci-app-natflow-users
 
 rm -rf ./*/.git & rm -f ./*/.gitattributes
 rm -rf ./*/.svn & rm -rf ./*/.github & rm -rf ./*/.gitignore
